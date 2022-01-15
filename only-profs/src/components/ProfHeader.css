@@ -1,0 +1,22 @@
+.link {
+    text-decoration: none;
+    text-color: #0072BC;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+ 
+}
+
+.logo {
+    width: 100px;
+}
