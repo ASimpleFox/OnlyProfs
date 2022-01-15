@@ -1,0 +1,1 @@
+// All functions that read from cloud firestore

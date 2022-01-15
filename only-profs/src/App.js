@@ -1,5 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
+import * as func from "./back-end/functions";
+
+// Front-end can use the above function imports
+func.signIn();
 
 function App() {
   return (

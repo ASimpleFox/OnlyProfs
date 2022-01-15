@@ -1,41 +1,18 @@
-import { db, auth } from "./firebase-files/firebase.js";
-import { doc, collection, addDoc, getDocs, setDoc } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import * as Auth from "./firebase-files/Auth";
+import * as Create from "./firebase-files/create";
+import * as Read from "./firebase-files/read";
+import * as Remove from "./firebase-files/remove";
+import * as Update from "./firebase-files/update";
 
-const proffesorRef = doc(db, "Professors");
-const instructorsRef = doc(db, "Instructors");
-const studentsRef = doc(db, "Students");
+// All functions that front-end will call (Keep it simple)
 
-const createProfessorDocument = ({ user }) => {
-  setDoc(doc(db, `Professors/${user.providorData.uid}`), {});
+const signUp = (email, password) => {
+    Auth.signUpProfessor(email, password);
+    // Could also be for signing up a student
 };
 
-const signUpProfessor = ({ email, password }) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-
-      createProfessorDocument(user);
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return error;
-    });
+const signIn = (email, password) => {
+    Auth.signInProfessor(email, password);
 };
 
-const signInProfessor = ({ email, password }) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      return user;
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      return error;
-    });
-};
+export {signUp, signIn}
