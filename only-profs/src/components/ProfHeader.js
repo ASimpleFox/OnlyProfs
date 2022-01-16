@@ -30,7 +30,6 @@ function ProfHeader() {
                         <Link className="link" to="/login">Login</Link>
                         <Link className="link" to="/Upload">Upload</Link>
                         <Link className="link" to="/Profile">Profile</Link>
-                    <Avatar>H</Avatar>
                     </div>
                 </div>
                 <div className="content">
