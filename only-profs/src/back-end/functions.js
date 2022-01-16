@@ -16,4 +16,25 @@ const signIn = async (email, password) => {
     return user;
 };
 
-export {signUp, signIn}
+const getProfessorVideos = async (uid) => {
+    const data = Read.getProfessorVideos(uid);
+    return data;
+};
+
+const getProfessorAssignments = async (uid) => {
+    const data = Read.getProfessorAssignments(uid);
+    return data;
+};
+
+const getInstructorAssignments = async (uid) => {
+    const data = Read.getInstructorAssignments(uid);
+    return data;
+}
+
+const getProfessorInfo = async (username) => {
+    const res = Read.getProfessorInfo(username);
+    return res;
+}
+
+//get user information //video, video title, video description, associated aassignments
+export {signUp, signIn, getProfessorVideos, getProfessorAssignments, getInstructorAssignments, getProfessorInfo};

@@ -2,11 +2,8 @@ import React from "react";
 import {
   Grid,
   Paper,
-  Avatar,
   TextField,
   Button,
-  Typography,
-  Link,
 } from "@material-ui/core";
 import * as APIFirebase from "../back-end/functions";
 import { setSessionCookie } from "../session";

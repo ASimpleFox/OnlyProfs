@@ -1,6 +1,6 @@
 // All functions that read from cloud firestore
 import { db } from "./firebase.js";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, query, where } from "firebase/firestore";
 
 const getProfessorVideos = async (userUID) => {
   const professorVideosDoc = await getDoc(
@@ -10,7 +10,8 @@ const getProfessorVideos = async (userUID) => {
   if (professorVideosDoc.exists()) {
     return professorVideosDoc.data();
   } else {
-    return serverError("", "Document doesn't exist");
+    console.log(serverError("", "Document doesn't exist"));
+    return undefined;
   }
 };
 
@@ -22,7 +23,8 @@ const getProfessorAssignments = async (userUID) => {
   if (professorVideosDoc.exists()) {
     return professorVideosDoc.data();
   } else {
-    return serverError("", "Document doesn't exist");
+    console.log(serverError("", "Document doesn't exist"));
+    return undefined;
   }
 };
 
@@ -31,19 +33,14 @@ const getInstructorAssignments = async (userUID) => {
     doc(db, `Instructor/${userUID}/Assignments`)
   );
 
-  if (professorVideosDoc.exists()) {
-    return professorVideosDoc.data();
-  } else {
-    return serverError("", "Document doesn't exist");
-  }
+const getProfessorInfo = async (username) => {
+  const profList = collection(db, "UserInformation");
+  console.log(profList);
+  let q = (username) ? query(profList, where("name", "==", username)) : undefined;
 };
 
 const serverError = (errorCode, errorMessage) => {
-  return { errorCode: errorCode, errorMessage: errorMessage };
+  return { "errorCode": errorCode, "errorMessage": errorMessage };
 };
 
-export {
-  getProfessorVideos,
-  getProfessorAssignments,
-  getInstructorAssignments,
-};
+export { getProfessorVideos, getProfessorAssignments, getInstructorAssignments, getProfessorInfo }

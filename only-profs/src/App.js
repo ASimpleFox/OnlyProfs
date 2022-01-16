@@ -1,5 +1,5 @@
 import "./App.css";
-// import * as testing from "./back-end/testing";
+import * as testing from "./back-end/testing";
 // import * as func from "./back-end/functions";
 
 // Front-end can use the above function imports
@@ -7,6 +7,8 @@ import "./App.css";
 import { UserContextProvider, UserContext } from "./UserContext";
 import ProfHeader from "./components/ProfHeader";
 import { getSessionCookie, setSessionCookie } from "./session";
+
+testing.getProfessorInfo();
 
 function App() {
   setSessionCookie("test");

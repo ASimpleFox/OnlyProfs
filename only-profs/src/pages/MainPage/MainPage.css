@@ -1,3 +1,7 @@
+body {
+    background: linear-gradient(180deg, #EBF7FF 0%, rgba(235, 247, 255, 0) 100%);
+}
+
 .top-container {
     display: flex;
     flex-direction: row;
@@ -27,4 +31,17 @@
     font-size: 4em;
     font-weight: bold;
     position: relative;
+}
+
+.regular-text {
+    font-size: 14px;
+    font-family: var(--font-family-poppins);
+    font-weight: normal;
+    position: relative;
+}
+
+.button {
+    color: #0072BC;
+    border: none;
+    
 }
