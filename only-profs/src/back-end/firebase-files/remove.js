@@ -1,0 +1,1 @@
+// All functions that remove/delete data from cloud firestore

@@ -1,0 +1,1 @@
+// All functions that update data in cloud firestore

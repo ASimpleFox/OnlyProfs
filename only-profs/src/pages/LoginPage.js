@@ -1,4 +1,5 @@
 import React from "react";
+import * as func from "../back-end/functions";
 import {
   Grid,
   Paper,
@@ -18,7 +19,6 @@ export default function LoginPage() {
   });
 
   const onHandleChange = (e, field) => {
-    console.log(e);
     switch (field) {
       case "email":
         setFormParams({ ...formParams, email: e.target.value });
@@ -29,9 +29,14 @@ export default function LoginPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formParams);
+    const user = await func.signIn(formParams.email, formParams.password);
+    if (!user) {
+        console.log("Login Failed! Check Credentials!")
+    } else {
+        console.log("Login Successful")
+    }
   };
 
   const paperStyle = {
