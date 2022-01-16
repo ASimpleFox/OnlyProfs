@@ -37,31 +37,31 @@ const createInstructorDocument = async (user) => {
     },
     { merge: true }
   );
+  await setDoc(doc(db, `Instructor/${user.uid}/Videos`), {}, { merge: true });
+};
+
+const addVideoUrl = async (url, uid, fileName, description) => {
   await setDoc(
-    doc(db, `Instructor/${user.uid}/Videos/Video`),
-    {},
+    doc(db, `Professors/${uid}/Videos/${fileName}`),
+    {
+      videoURL: url,
+      videoDescription: description,
+      videoName: fileName,
+    },
     { merge: true }
   );
 };
 
-const addVideoUrl = async (url, uid, fileName, description) => {
-  let docData = {};
-  docData[fileName] = {
-    videoURL: url,
-    videoDescription: description,
-    videoName: fileName,
-  };
-  await updateDoc(doc(db, `Professors/${uid}/Videos/Video`), docData);
-};
-
 const addAssignmentUrl = async (url, uid, fileName, description) => {
-  let docData = {};
-  docData[fileName] = {
-    assignmentURL: url,
-    assignmentDescription: description,
-    assignmentName: fileName,
-  };
-  await updateDoc(doc(db, `Professors/${uid}/Assignments/Assignment`), docData);
+  await setDoc(
+    doc(db, `Professors/${uid}/Assignments/${fileName}`),
+    {
+      assignmentURL: url,
+      assignmentDescription: description,
+      assignmentName: fileName,
+    },
+    { merge: true }
+  );
 };
 
 export {

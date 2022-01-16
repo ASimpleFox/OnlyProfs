@@ -86,7 +86,6 @@ export default function UploadLecture() {
 
   return (
     <div>
-      <p>{formParams.description}</p>
       <form className="upload-lecture-container" onSubmit={handleSubmit}>
         <h1>Upload Lecture</h1>
         <TextField

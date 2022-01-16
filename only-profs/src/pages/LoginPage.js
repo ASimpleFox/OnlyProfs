@@ -63,8 +63,8 @@ export default function LoginPage() {
         <form onSubmit={handleSubmit}>
           <TextField
             onChange={(e) => onHandleChange(e, "email")}
-            label="Username"
-            placeholder="Enter username"
+            label="Email"
+            placeholder="Enter email"
             fullWidth
             required
           />
