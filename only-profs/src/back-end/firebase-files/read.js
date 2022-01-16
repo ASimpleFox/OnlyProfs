@@ -49,7 +49,24 @@ const getProfessorInfo = async (username) => {
       console.log("An issue occured");
     }
     return data;
-  };
+};
+
+
+const getProfessorInfoByUID = async (uid) => {
+    const profList = collection(db, "Professors");
+    const data = undefined;
+    try {
+      const querySnapshot = await getDocs(profList);
+      querySnapshot.forEach((doc) => {
+          if (doc.id == uid) {
+              data = doc.data;
+          }
+      });
+    } catch (err) {
+      console.log("An issue occured");
+    }
+    return data;
+};
 
 const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
@@ -59,5 +76,6 @@ export {
   getProfessorVideos,
   getProfessorAssignments,
   getProfessorInfo,
+  getProfessorInfoByUID,
   getInstructorAssignments,
 };
