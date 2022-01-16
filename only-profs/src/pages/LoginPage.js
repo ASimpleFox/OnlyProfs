@@ -1,5 +1,5 @@
 import React from "react";
-import * as func from "../back-end/functions";
+import * as APIFirebase from "../back-end/functions";
 import {
   Grid,
   Paper,
@@ -10,9 +10,12 @@ import {
 } from "@material-ui/core";
 
 import { Link } from "react-router-dom";
+import { setSessionCookie } from "../session";
+// import { userContext } from './UserContext';
 
 export default function LoginPage() {
 
+  
   const [formParams, setFormParams] = React.useState({
     email: "",
     password: "",
@@ -31,11 +34,13 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await func.signIn(formParams.email, formParams.password);
-    if (!user) {
-        console.log("Login Failed! Check Credentials!")
+    const response = await APIFirebase.signIn(formParams.email, formParams.password);
+    if (!response) {
+        console.log("Login Failed! Check Credentials!");
     } else {
-        console.log("Login Successful")
+        console.log(response.uid)
+        console.log("Login Successful");
+        setSessionCookie(response);
     }
   };
 

@@ -2,16 +2,17 @@ import React from "react";
 import {
   Grid,
   Paper,
-  Avatar,
   TextField,
   Button,
-  Typography,
-  Link,
 } from "@material-ui/core";
-import * as func from "../back-end/functions";
+import * as APIFirebase from "../back-end/functions";
+import { setSessionCookie } from "../session";
 
 export default function SignUpPage() {
   const [formParams, setFormParams] = React.useState({
+    name: "",
+    title: "",
+    description: "",
     email: "",
     password: "",
   });
@@ -24,16 +25,33 @@ export default function SignUpPage() {
       case "password":
         setFormParams({ ...formParams, password: e.target.value });
         break;
+      case "name":
+        setFormParams({ ...formParams, name: e.target.value });
+        break;
+      case "title":
+        setFormParams({ ...formParams, title: e.target.value });
+        break;
+      case "description":
+        setFormParams({ ...formParams, description: e.target.value });
+        break;
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await func.signUp(formParams.email, formParams.password);
-    if (!user) {
-        console.log("Signup Failed!")
+    const request = await APIFirebase.signUp(
+      formParams.email,
+      formParams.password,
+      formParams.name,
+      formParams.title,
+      formParams.description
+    );
+    if (!request) {
+      console.log("Signup Failed!");
     } else {
-        console.log("Signup Successful!")
+      console.log("Signup Successful!");
+      setSessionCookie(request)
+      console.log(request)
     }
   };
 
@@ -54,8 +72,8 @@ export default function SignUpPage() {
         <form onSubmit={handleSubmit}>
           <TextField
             onChange={(e) => onHandleChange(e, "email")}
-            label="Username"
-            placeholder="Enter username"
+            label="Email"
+            placeholder="Enter Email"
             fullWidth
             required
           />
@@ -67,11 +85,31 @@ export default function SignUpPage() {
             fullWidth
             required
           />
+          <TextField
+            onChange={(e) => onHandleChange(e, "name")}
+            label="Name"
+            placeholder="Enter name"
+            fullWidth
+            required
+          />
+          <TextField
+            onChange={(e) => onHandleChange(e, "title")}
+            label="Title"
+            placeholder="Enter title"
+            fullWidth
+            required
+          />
+          <TextField
+            onChange={(e) => onHandleChange(e, "description")}
+            label="Description"
+            placeholder="Enter description"
+            fullWidth
+            required
+          />
           <Button type="submit" variant="contained" style={btnstyle} fullWidth>
             Sign up
           </Button>
         </form>
-        
       </Paper>
     </Grid>
   );

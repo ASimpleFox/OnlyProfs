@@ -2,8 +2,12 @@ import React from 'react'
 import thumbnail from './thumbnail.jpg';
 import './VideoCard.css';
 function VideoCard() {
+    const watchVideo = () => {
+        window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+    }
+
     return (
-        <div className="video-card">
+        <div onClick={() => watchVideo()} className="video-card">
             <img className="thumbnail" src={thumbnail}></img>
             <div className="video-card-content">
                 <h3 className="video-info">Title</h3>

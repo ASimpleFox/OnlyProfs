@@ -1,23 +1,6 @@
-.main-container {
-    display: flex;
-    width: 100%;
+body {
+    background: linear-gradient(180deg, #EBF7FF 0%, rgba(235, 247, 255, 0) 100%);
 }
-
-.triangle-people {
-    width: 20px;
-    height: 25%;
-    top: -207px;
-    right: 0;
-
-}
-
-.emphasized-text {
-    padding-left: 250px;
-    width: 50%;
-    font-size: 4em;
-    font-weight: bold;
-}
-
 
 .top-container {
     display: flex;
@@ -25,4 +8,44 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    top: 0px;
+}
+.main-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.triangle-people {
+    width: auto;
+    height: auto;
+    position: relative;
+    top: 2%;
+    margin-left: -18%;
+    margin-bottom: -11%;
+}
+
+.emphasized-text {
+    padding-left: 5%;
+    width: 50%;
+    font-size: 4em;
+    font-weight: bold;
+    position: relative;
+}
+
+.regular-text {
+    font-size: 14px;
+    font-family: var(--font-family-poppins);
+    font-weight: normal;
+    position: relative;
+}
+
+.button {
+    background-color: #0072BC;
+    color: white;
+    border: none;
+    padding: 7px 26px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer
 }
