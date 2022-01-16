@@ -8,6 +8,8 @@ import {
   Typography,
   Link,
 } from "@material-ui/core";
+import * as APIFirebase from "../back-end/functions";
+import { setSessionCookie } from "../session";
 
 export default function SignUpPage() {
   const [formParams, setFormParams] = React.useState({
@@ -19,7 +21,6 @@ export default function SignUpPage() {
   });
 
   const onHandleChange = (e, field) => {
-    console.log(e);
     switch (field) {
       case "email":
         setFormParams({ ...formParams, email: e.target.value });
@@ -39,9 +40,22 @@ export default function SignUpPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formParams);
+    const request = await APIFirebase.signUp(
+      formParams.email,
+      formParams.password,
+      formParams.name,
+      formParams.title,
+      formParams.description
+    );
+    if (!request) {
+      console.log("Signup Failed!");
+    } else {
+      console.log("Signup Successful!");
+      setSessionCookie(request)
+      console.log(request)
+    }
   };
 
   const paperStyle = {
@@ -61,8 +75,8 @@ export default function SignUpPage() {
         <form onSubmit={handleSubmit}>
           <TextField
             onChange={(e) => onHandleChange(e, "email")}
-            label="Username"
-            placeholder="Enter username"
+            label="Email"
+            placeholder="Enter Email"
             fullWidth
             required
           />
@@ -74,11 +88,31 @@ export default function SignUpPage() {
             fullWidth
             required
           />
+          <TextField
+            onChange={(e) => onHandleChange(e, "name")}
+            label="Name"
+            placeholder="Enter name"
+            fullWidth
+            required
+          />
+          <TextField
+            onChange={(e) => onHandleChange(e, "title")}
+            label="Title"
+            placeholder="Enter title"
+            fullWidth
+            required
+          />
+          <TextField
+            onChange={(e) => onHandleChange(e, "description")}
+            label="Description"
+            placeholder="Enter description"
+            fullWidth
+            required
+          />
           <Button type="submit" variant="contained" style={btnstyle} fullWidth>
-            Sign in
+            Sign up
           </Button>
         </form>
-        
       </Paper>
     </Grid>
   );

@@ -10,40 +10,40 @@ const serverError = (errorCode, errorMessage) => {
 };
 
 const signUpProfessor = async (email, password, username, title, description) => {
+  let user = undefined;
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
-
+      user = userCredential.user;
+      user.displayName = username;
       createProfessorDocument(user, username, title, description);
-      return user;
     })
     .catch((error) => {
-      return serverError(error.code, error.message);
+      console.log(serverError(error.code, error.message));
     });
+  return user;
 };
 
 const signUpInstructor = async (email, password) => {
+  let user = undefined;
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-
       createInstructorDocument(user);
-      return user;
     })
     .catch((error) => {
-      return serverError(error.code, error.message);
+      console.log(serverError(error.code, error.message));
     });
+  return user;
 };
 
 const signIn = async (email, password) => {
-  console.log(email + " " + password);
   let user = undefined;
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       user = userCredential.user;
     })
     .catch((error) => {
-      console.log(error);
+        console.log(serverError(error.code, error.message));
     });
   return user;
 };

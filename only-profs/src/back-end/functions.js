@@ -6,10 +6,9 @@ import * as Update from "./firebase-files/update";
 
 // All functions that front-end will call (Keep it simple)
 
-
 const signUp = async (email, password, username, title, description) => {
-    await Auth.signUpProfessor(email, password, username, title, description);
-    // Could also be for signing up a student
+    const user = await Auth.signUpProfessor(email, password, username, title, description);
+    return user;
 };
 
 const signIn = async (email, password) => {

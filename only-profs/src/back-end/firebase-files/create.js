@@ -1,10 +1,13 @@
 import { db } from "./firebase.js";
 import { doc, setDoc } from "firebase/firestore";
 
-const createProfessorDocument = async (user, username, ) => {
+const createProfessorDocument = async (user, userUsername, userTitle, userDescription) => {
   console.log(user);
   await setDoc(doc(db, `Professors/${user.uid}/UserInformation/Information`), {
     email: user.email,
+    username: userUsername,
+    title: userTitle,
+    description: userDescription,
   }, { merge: true});
   await setDoc(doc(db, `Professors/${user.uid}/Videos/Video`), {}, { merge: true});
   await setDoc(doc(db, `Professors/${user.uid}/Assignments/Assignment`), {}, { merge: true});
