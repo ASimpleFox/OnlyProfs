@@ -9,26 +9,17 @@ const getProfessorVideos = async (userUID) => {
   querySnapshot.forEach((doc) => {
     data.push(doc.data());
   });
-
-  if (data.length != 0) {
-    return data;
-  } else {
-    console.log(serverError("", "Document doesn't exist"));
-    return undefined;
-  }
+  return data;
 };
 
 const getProfessorAssignments = async (userUID) => {
-  const professorVideosDoc = await getDoc(
-    doc(db, `Professors/${userUID}/Assignments`)
-  );
-
-  if (professorVideosDoc.exists()) {
-    return professorVideosDoc.data();
-  } else {
-    console.log(serverError("", "Document doesn't exist"));
-    return undefined;
-  }
+  const assignmentList = await collection(db, `Professors/${userUID}/Assignments`);
+  const querySnapshot = await getDocs(assignmentList);
+  var data = [];
+  querySnapshot.forEach((doc) => {
+    data.push(doc.data());
+  });
+  return data;
 };
 
 const getInstructorAssignments = async (userUID) => {
