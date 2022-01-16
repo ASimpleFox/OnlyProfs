@@ -13,3 +13,8 @@ export async function testGetProfessorVideos() {
     const data = await functions.getProfessorVideos("ddlHL0FYUpSwJsLtBCk2PD2ctJe2");
     console.log(data);
 };
+
+export async function getProfessorInfoByUID() {
+    const data = await functions.getProfessorInfoByUID("SCN0gVD7aaYRr5M9oTHxmyNpmWJ3");
+    console.log(data);
+}
