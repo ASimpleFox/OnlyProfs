@@ -1,12 +1,20 @@
-import { doc, collection, addDoc, getDocs, setDoc } from "firebase/firestore";
+import { db } from "./firebase.js";
+import { doc, setDoc } from "firebase/firestore";
 
-const professorRef = doc(db, "Professors");
-const instructorsRef = doc(db, "Instructors");
-const studentsRef = doc(db, "Students");
-
-
-const createProfessorDocument = ({ user }) => {
-    setDoc(doc(db, `Professors/${user.providorData.uid}`), {});
+const createProfessorDocument = async (user) => {
+  console.log(user);
+  await setDoc(doc(db, `Professors/${user.uid}/UserInformation/Information`), {
+    email: user.email,
+  });
+  await setDoc(doc(db, `Professors/${user.uid}/Videos/Video`), {});
+  await setDoc(doc(db, `Professors/${user.uid}/Assignments/Assignment`), {});
 };
 
-export {createProfessorDocument}
+const createInstructorDocument = async (user) => {
+  await setDoc(doc(db, `Instructor/${user.uid}/UserInformation/Information`), {
+    email: user.email,
+  });
+  await setDoc(doc(db, `Instructor/${user.uid}/Videos/Video`), {});
+};
+
+export { createProfessorDocument, createInstructorDocument };
