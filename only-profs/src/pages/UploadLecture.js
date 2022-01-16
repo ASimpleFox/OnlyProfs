@@ -63,42 +63,86 @@ export default function UploadLecture() {
   }
 
   const handleSubmit = async (e) => {
-    const uid = localStorage.getItem("uid");
-    console.log(Cookies.get('session'))
+    console.log(document.cookie)
+
+    const uid = Cookies.get("session");
+    console.log(Cookies.get("session"));
     e.preventDefault();
-    const video_response = await APIFirebase.signIn(uid);
+
+    const video_response = await APIFirebase.uploadVideo(
+      uid,
+      VideoFile,
+      formParams.title,
+      formParams.description
+    );
+
+    const assignment_response = await APIFirebase.uploadAssignment(
+      uid,
+      AssignmentFile,
+      formParams.title,
+      formParams.description
+    );
+
     console.log(formParams);
-    if (!video_response) {
-        console.log("Login Failed! Check Credentials!");
+    if (video_response === "Error") {
+      console.log("Video Upload Failed");
     } else {
-        console.log(video_response.uid)
-        console.log("Login Successful");
+      console.log("Video Upload Successful");
+    }
+
+    if (assignment_response === "Error") {
+      console.log("Assignment Upload Failed");
+    } else {
+      console.log("Assignment Upload Successful");
     }
   };
 
-  // const [imageAsFile, setFile] = useState('');
-  // const handleSelectFile = (e) => {
-  //   const image = e.target.files[0]
-  //   setFile(imageFile => (image))
-  // }
+  const [VideoFile, setVideoFile] = React.useState("");
+  const handleSelectVideoFile = (e) => {
+    const image = e.target.files[0];
+    setVideoFile((imageFile) => image);
+  };
+
+  const [AssignmentFile, setAssignmentFile] = React.useState("");
+  const handleSelectAssignmentFile = (e) => {
+    const image = e.target.files[0];
+    setAssignmentFile((imageFile) => image);
+  };
 
   return (
-    <div >
+    <div>
       <p>{formParams.description}</p>
       <form className="upload-lecture-container" onSubmit={handleSubmit}>
         <h1>Upload Lecture</h1>
-        <TextField onChange={(e) => onHandleChange(e, "title")} id="outlined-basic" label="Lecture Title" variant="outlined" />
-        <TextField onChange={(e) => onHandleChange(e, "description")} id="outlined-basic" label="Lecture Description" variant="outlined"/>
-        {/* <Upload {...props}>
-          <AntButton icon={<UploadOutlined />}>Upload Video</AntButton>
-          <AntButton icon={<UploadOutlined />}>Upload Assignments</AntButton>
-        </Upload> */}
-        {/* <p>Video</p>
-        <input onChange={handleImageAsFile} type="file" accept=".mp4, .mov" />
-        <p>Assignment</p>
-        <input onChange={handleImageAsFile} type="file" accept=".pdf, .docx" /> */}
+        <TextField
+          onChange={(e) => onHandleChange(e, "title")}
+          id="outlined-basic"
+          label="Lecture Title"
+          variant="outlined"
+        />
+        <TextField
+          onChange={(e) => onHandleChange(e, "description")}
+          id="outlined-basic"
+          label="Lecture Description"
+          variant="outlined"
+        />
 
-        <Button variant="contained" className="button" type="submit">Submit</Button>
+        <p>Video</p>
+        <input
+          onChange={handleSelectVideoFile}
+          type="file"
+          accept=".mp4, .mov"
+        />
+        <p>Assignment</p>
+        <input
+          onChange={handleSelectAssignmentFile}
+          type="file"
+          accept=".pdf, .docx"
+        />
+
+        <Button variant="contained" className="button" type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );
