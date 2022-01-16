@@ -15,10 +15,10 @@ function VideoCard(props) {
     return (
         <div onClick={() => watchVideo()} className="video-card">
             {/* <img className="thumbnail" src={thumbnail}></img> */}
-            <video className="thumbnail" src={props.video["Test File"].videoURL}></video>
+            <video className="thumbnail" src={props.video.videoURL}></video>
             <div className="video-card-content">
-                <h3 className="video-info">{props.video["Test File"].videoName}</h3>
-                <p className="video-info">{props.video["Test File"].videoDescription}</p>
+                <h3 className="video-info">{props.video.videoName}</h3>
+                <p className="video-info">{props.video.videoDescription}</p>
             </div>
         </div>
     )

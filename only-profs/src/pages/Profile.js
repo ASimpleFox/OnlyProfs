@@ -10,7 +10,14 @@ function Profile(props) {
   const [videoList, setVideoList] = React.useState([]);
 
   const videos = videoList.map((video, ind) => {
-      return <VideoCard key={ind} video={video} />;
+      console.log("video map", video);
+      let video_components = 
+      for (var vid in video) {
+          
+          console.log("vid", video[vid]);
+        return <VideoCard key={ind} video={video[vid]} />;
+      }
+      
   });
 
 
