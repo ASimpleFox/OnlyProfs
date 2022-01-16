@@ -9,7 +9,13 @@ function Profile(props) {
 
   useEffect(async () => {
     console.log("useEffect", props.profile);
-    setUserProfile(props.profile)
+    if (props.profile) {
+        setUserProfile(props.profile)
+    } else {
+        const profile = await APIFirebase.getUserProfile(props.uid);
+        setUserProfile(profile);
+    }
+    
     console.log(userProfile)
   }, []);
   return (
