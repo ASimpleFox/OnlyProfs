@@ -11,6 +11,9 @@ import {
 
 export default function SignUpPage() {
   const [formParams, setFormParams] = React.useState({
+    name: "",
+    title: "",
+    description: "",
     email: "",
     password: "",
   });
@@ -23,6 +26,15 @@ export default function SignUpPage() {
         break;
       case "password":
         setFormParams({ ...formParams, password: e.target.value });
+        break;
+      case "name":
+        setFormParams({ ...formParams, name: e.target.value });
+        break;
+      case "title":
+        setFormParams({ ...formParams, title: e.target.value });
+        break;
+      case "description":
+        setFormParams({ ...formParams, description: e.target.value });
         break;
     }
   };

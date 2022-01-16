@@ -9,12 +9,12 @@ const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
 };
 
-const signUpProfessor = async (email, password) => {
+const signUpProfessor = async (email, password, username, title, description) => {
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
 
-      createProfessorDocument(user);
+      createProfessorDocument(user, username, title, description);
       return user;
     })
     .catch((error) => {

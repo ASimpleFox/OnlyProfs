@@ -34,12 +34,13 @@ export default function LoginPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await APIFirebase.signIn(formParams.email, formParams.password);
-    if (!user) {
+    const response = await APIFirebase.signIn(formParams.email, formParams.password);
+    if (!response) {
         console.log("Login Failed! Check Credentials!");
     } else {
+        console.log(response.uid)
         console.log("Login Successful");
-        setSessionCookie(user);
+        setSessionCookie(response);
     }
   };
 
