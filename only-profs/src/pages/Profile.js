@@ -12,7 +12,7 @@ function Profile(props) {
     if (props.profile) {
         setUserProfile(props.profile)
     } else {
-        const profile = await APIFirebase.getUserProfile(props.uid);
+        const profile = await APIFirebase.getProfessorInfoByUID(props.uid);
         setUserProfile(profile);
     }
     

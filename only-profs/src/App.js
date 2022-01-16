@@ -8,7 +8,6 @@ import * as testing from "./back-end/testing";
 // Front-end can use the above function imports
 //func.signIn();
 
-testing.getProfessorInfo();
 function App() {
   setSessionCookie("test");
 

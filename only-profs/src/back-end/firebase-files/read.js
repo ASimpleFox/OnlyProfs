@@ -3,12 +3,15 @@ import { db } from "./firebase.js";
 import { doc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
 
 const getProfessorVideos = async (userUID) => {
-  const professorVideosDoc = await getDoc(
-    doc(db, `Professors/${userUID}/Videos`)
-  );
+  const videoList = await collection(db, `Professors/${userUID}/Videos`);
+  const querySnapshot = await getDocs(videoList);
+  var data = []
+  querySnapshot.forEach((doc) => {
+    data.push(doc.data());
+  })
 
-  if (professorVideosDoc.exists()) {
-    return professorVideosDoc.data();
+  if (data.length != 0) {
+    return data;
   } else {
     console.log(serverError("", "Document doesn't exist"));
     return undefined;
