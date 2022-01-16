@@ -41,6 +41,7 @@ function Profile(props) {
 
     console.log(userProfile);
   }, []);
+
   return (
     <div className="profile-container">
       <div className="profile-info">
