@@ -1,7 +1,7 @@
 import { db } from "./firebase.js";
 import { doc, setDoc } from "firebase/firestore";
 
-const createProfessorDocument = async (user) => {
+const createProfessorDocument = async (user, username, ) => {
   console.log(user);
   await setDoc(doc(db, `Professors/${user.uid}/UserInformation/Information`), {
     email: user.email,
