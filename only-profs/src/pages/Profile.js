@@ -13,13 +13,14 @@ function Profile(props) {
 
   const videos = videoList.map((video, ind) => {
     console.log("video map", video);
+    return <VideoCard key={ind} video={video} />;
     //   let video_components = () => {
-    for (var vid in video) {
-      console.log("vid ", video[vid]);
-      return <VideoCard key={ind} video={video[vid]} />;
+    // for (var vid in video) {
+      // console.log("vid ", video[vid]);
+      // return <VideoCard key={ind} video={video[vid]} />;
       //   }
       //   return video_components;
-    }
+    // }
   });
 
   useEffect(async () => {
