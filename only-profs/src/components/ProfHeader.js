@@ -8,6 +8,7 @@ import logo from './logo.png';
 import {Avatar} from '@material-ui/core';
 import Profile from '../pages/Profile';
 import SignUpPage from '../pages/SignUpPage';
+import Profiles from '../pages/Profiles';
 
 import {
     BrowserRouter as Router,
@@ -40,6 +41,7 @@ function ProfHeader() {
                     <Route path="/login" element={<LoginPage/>}/>
                     <Route path="/profile" element={<Profile/>}/>
                     <Route path="/SignUp" element={<SignUpPage/>}/>
+                    <Route path="/Profiles" element={<Profiles/>}/>
                 </Routes>
                 </div>
             </Router>

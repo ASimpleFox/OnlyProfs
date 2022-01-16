@@ -7,24 +7,6 @@ import './UploadLecture.css';
 import Cookies from 'js-cookie';
 
 export default function UploadLecture() {
-
-  // const props = {
-  //   name: 'file',
-  //   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-  //   headers: {
-  //     authorization: 'authorization-text',
-  //   },
-  //   onChange(info) {
-  //     if (info.file.status !== 'uploading') {
-  //       console.log("info file ", info.file, info.fileList);
-  //     }
-  //     if (info.file.status === 'done') {
-  //       message.success(`${info.file.name} file uploaded successfully`);
-  //     } else if (info.file.status === 'error') {
-  //       message.error(`${info.file.name} file upload failed.`);
-  //     }
-  //   },
-  // };
   
   const [formParams, setFormParams] = React.useState({
     title: "",
@@ -35,7 +17,6 @@ export default function UploadLecture() {
   });
 
   const onHandleChange = (e, field) => {
-    console.log(e)
     switch(field) {
       case "title":
         setFormParams({...formParams,
@@ -48,13 +29,11 @@ export default function UploadLecture() {
         });
         break;
       case "video":
-        console.log("video", e.target.files[0])
         setFormParams({...formParams,
           video: e.target.value,
         });
         break;
       case "assignments":
-        console.log("assignments", e.target.files[0])
         setFormParams({...formParams,
           assignments: e.target.value,
         });
@@ -63,10 +42,7 @@ export default function UploadLecture() {
   }
 
   const handleSubmit = async (e) => {
-    console.log(document.cookie)
-
     const uid = Cookies.get("session");
-    console.log(Cookies.get("session"));
     e.preventDefault();
 
     const video_response = await APIFirebase.uploadVideo(
@@ -83,7 +59,6 @@ export default function UploadLecture() {
       formParams.description
     );
 
-    console.log(formParams);
     if (video_response === "Error") {
       console.log("Video Upload Failed");
     } else {

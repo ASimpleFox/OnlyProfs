@@ -10,7 +10,6 @@ const uploadVideoToStorage = async (uid, file, fileName, description) => {
   const videosRef = ref(storage, `${uid}/Videos/${fileName}`);
   await uploadBytes(videosRef, file)
     .then((snapshot) => {
-      console.log("Uploaded a blob or file!");
     })
     .catch((e) => {
       return "Error";
@@ -32,7 +31,6 @@ const uploadAssignmentToStorage = async (uid, file, fileName, description) => {
   const assignmentRef = ref(storage, `${uid}/Assignments/${fileName}`);
   await uploadBytes(assignmentRef, file)
     .then((snapshot) => {
-      console.log("Uploaded a blob or file!");
     })
     .catch((e) => {
       return "Error";

@@ -51,7 +51,6 @@ export default function SignUpPage() {
     } else {
       console.log("Signup Successful!");
       setSessionCookie(request)
-      console.log(request)
     }
   };
 

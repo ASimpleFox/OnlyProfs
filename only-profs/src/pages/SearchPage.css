@@ -1,0 +1,33 @@
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding-left: 50px;
+    height: 100%;
+}
+
+.padding {
+    margin-top: 50px;
+    
+}
+
+.profile-content {
+    padding-left: 10px;
+}
+.search-results {
+    border-style: solid;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.search-bar {
+    display: flex;
+ 
+    gap: 20px;
+}
+
+.search-results:hover {
+    cursor: pointer;
+}

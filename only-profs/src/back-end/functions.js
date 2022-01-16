@@ -46,6 +46,11 @@ const uploadAssignment = async (uid, file, fileName, description) => {
   await Add.uploadAssignmentToStorage(uid, file, fileName, description);
 };
 
+const getProfessorInfo = async (username) => {
+    const res = Read.getProfessorInfo(username);
+    return res;
+}
+
 //get user information //video, video title, video description, associated aassignments
 export {
   signUp,
@@ -53,6 +58,7 @@ export {
   getProfessorVideos,
   getProfessorAssignments,
   getInstructorAssignments,
+  getProfessorInfo,
   uploadVideo,
   uploadAssignment,
 };

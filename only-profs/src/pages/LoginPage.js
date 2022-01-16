@@ -38,7 +38,6 @@ export default function LoginPage() {
     if (!response) {
         console.log("Login Failed! Check Credentials!");
     } else {
-        console.log(response.uid)
         console.log("Login Successful");
         setSessionCookie(response.uid);
     }

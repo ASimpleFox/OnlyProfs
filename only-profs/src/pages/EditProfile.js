@@ -14,7 +14,6 @@ export default function EditProfile() {
   });
 
   const onHandleChange = (e, field) => {
-    console.log(e)
     switch(field) {
       case "name":
         setFormParams({...formParams,
@@ -36,7 +35,6 @@ export default function EditProfile() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formParams);
   }
 
   return (

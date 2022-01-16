@@ -7,7 +7,6 @@ const createProfessorDocument = async (
   userTitle,
   userDescription
 ) => {
-  console.log(user);
   await setDoc(
     doc(db, `Professors/${user.uid}`),
     {
@@ -46,7 +45,6 @@ const createInstructorDocument = async (user) => {
 };
 
 const addVideoUrl = async (url, uid, fileName, description) => {
-  console.log(uid);
   let docData = {};
   docData[fileName] = {
     videoURL: url,
@@ -57,7 +55,6 @@ const addVideoUrl = async (url, uid, fileName, description) => {
 };
 
 const addAssignmentUrl = async (url, uid, fileName, description) => {
-  console.log(uid);
   let docData = {};
   docData[fileName] = {
     assignmentURL: url,

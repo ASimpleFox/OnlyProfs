@@ -1,6 +1,6 @@
 // All functions that read from cloud firestore
 import { db } from "./firebase.js";
-import { doc, getDoc, collection, query, where } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
 
 const getProfessorVideos = async (userUID) => {
   const professorVideosDoc = await getDoc(
@@ -35,6 +35,21 @@ const getInstructorAssignments = async (userUID) => {
   return professorVideosDoc;
 };
 
+const getProfessorInfo = async (username) => {
+    const profList = collection(db, "Professors");
+    let q = (username) ? query(profList, where("username", "==", username)) : undefined;
+    var data = undefined;
+    try {
+      const querySnapshot = await getDocs(q || profList);
+      querySnapshot.forEach((doc) => {
+          data = doc.data();
+          data["uid"] = doc.id;
+      });
+    } catch (err) {
+      console.log("An issue occured");
+    }
+    return data;
+  };
 
 const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
@@ -43,5 +58,6 @@ const serverError = (errorCode, errorMessage) => {
 export {
   getProfessorVideos,
   getProfessorAssignments,
+  getProfessorInfo,
   getInstructorAssignments,
 };
