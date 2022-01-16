@@ -1,5 +1,6 @@
 import React from 'react'
 import triangles_people from './triangles-people.png';
+import lectures from './lecture.png'
 import './MainPage.css';
 
 function MainPage() {
@@ -11,9 +12,12 @@ function MainPage() {
             </div>
             <div className="watch-lectures">
                 <p className="emphasized-text">Watch lectures and review resources given by credible instructors.</p>
-            </div> className="regular-text">Recorded lectures, relevant readings, worksheets, tests, and more provided 
+            </div>
+            <div className="regular-text">
+                <p className="emphasized-text"> Recorded lectures, relevant readings, worksheets, tests, and more provided 
                 by an instructor of your choosing can easily be accessed just by searching up a topic. </p>
                 <button className="button">Begin Your Search</button>
+            </div>
         </div>
     )
 }

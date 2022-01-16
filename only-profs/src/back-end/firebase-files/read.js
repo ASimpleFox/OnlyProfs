@@ -32,6 +32,7 @@ const getInstructorAssignments = async (userUID) => {
   const professorVideosDoc = await getDoc(
     doc(db, `Instructor/${userUID}/Assignments`)
   );
+}
 
 const getProfessorInfo = async (username) => {
   const profList = collection(db, "UserInformation");

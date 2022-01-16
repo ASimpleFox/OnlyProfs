@@ -41,7 +41,11 @@ body {
 }
 
 .button {
-    color: #0072BC;
+    background-color: #0072BC;
+    color: white;
     border: none;
-    
+    padding: 7px 26px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer
 }

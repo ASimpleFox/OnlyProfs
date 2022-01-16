@@ -76,6 +76,12 @@ export default function UploadLecture() {
     }
   };
 
+  // const [imageAsFile, setFile] = useState('');
+  // const handleSelectFile = (e) => {
+  //   const image = e.target.files[0]
+  //   setFile(imageFile => (image))
+  // }
+
   return (
     <div >
       <p>{formParams.description}</p>
@@ -87,10 +93,10 @@ export default function UploadLecture() {
           <AntButton icon={<UploadOutlined />}>Upload Video</AntButton>
           <AntButton icon={<UploadOutlined />}>Upload Assignments</AntButton>
         </Upload> */}
-        <p>Video</p>
-        <input onChange={(e) => onHandleChange(e, "video")} type="file" accept=".mp4, .mov" />
+        {/* <p>Video</p>
+        <input onChange={handleImageAsFile} type="file" accept=".mp4, .mov" />
         <p>Assignment</p>
-        <input onChange={(e) => onHandleChange(e, "assignments")} type="file" accept=".pdf, .docx" />
+        <input onChange={handleImageAsFile} type="file" accept=".pdf, .docx" /> */}
 
         <Button variant="contained" className="button" type="submit">Submit</Button>
       </form>
