@@ -1,0 +1,28 @@
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+.triangle-people {
+    width: 20px;
+    height: 25%;
+    top: -207px;
+    right: 0;
+
+}
+
+.emphasized-text {
+    padding-left: 250px;
+    width: 50%;
+    font-size: 4em;
+    font-weight: bold;
+}
+
+
+.top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}

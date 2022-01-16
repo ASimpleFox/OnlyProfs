@@ -1,5 +1,5 @@
 import React from 'react';
-import MainPage from '../pages/MainPage';
+import MainPage from '../pages/MainPage/MainPage';
 import SearchPage from '../pages/SearchPage';
 import './Header.css';
 import {Avatar} from '@material-ui/core';

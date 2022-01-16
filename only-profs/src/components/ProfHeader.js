@@ -1,5 +1,5 @@
 import {React, Component} from 'react';
-import MainPage from '../pages/MainPage';
+import MainPage from '../pages/MainPage/MainPage';
 import SearchPage from '../pages/SearchPage';
 import LoginPage from '../pages/LoginPage';
 import UploadLecture from '../pages/UploadLecture';
