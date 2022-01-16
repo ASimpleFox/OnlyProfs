@@ -37,17 +37,17 @@ const getInstructorAssignments = async (userUID) => {
 
 const getProfessorInfo = async (username) => {
   const profList = collection(db, "Professors");
-  console.log(profList);
+  let q = (username) ? query(profList, where("username", "==", username)) : undefined;
+  var data = undefined;
   try {
-    const querySnapshot = await getDocs(profList);
-    console.log(querySnapshot);
-    var data = [];
+    const querySnapshot = await getDocs(q || profList);
     querySnapshot.forEach((doc) => {
-        console.log(doc);
+        data = doc.data()
     });
   } catch (err) {
-    console.log("An issue occured");
+    console.log("An issue occurred");
   }
+  return data;
 };
 
 const serverError = (errorCode, errorMessage) => {

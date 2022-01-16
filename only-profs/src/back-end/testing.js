@@ -6,5 +6,6 @@ export async function testSignup() {
 };
 
 export async function getProfessorInfo() {
-  await functions.getProfessorInfo("Koopa");
+  const data = await functions.getProfessorInfo("Koopa");
+  console.log(data);
 }
