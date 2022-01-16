@@ -11,6 +11,11 @@
     background-color: white;
     padding: 20px;
 }
+.video-card:hover {
+    cursor: pointer;
+    border-style: solid;
+}
+
 
 .video-card-content {
     display: flex;
@@ -21,7 +26,9 @@
     height: 100%;
     border-radius: 2px;
     padding-left: 20px;
+
 }
+
 
 .thumbnail {
     width: 300px;
