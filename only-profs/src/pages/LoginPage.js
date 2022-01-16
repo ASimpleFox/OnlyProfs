@@ -40,7 +40,7 @@ export default function LoginPage() {
     } else {
         console.log(response.uid)
         console.log("Login Successful");
-        setSessionCookie(response);
+        setSessionCookie(response.uid);
     }
   };
 
