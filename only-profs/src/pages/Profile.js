@@ -33,7 +33,7 @@ function Profile(props) {
       setUserProfile(props.profile);
     } else {
       const uid = Cookies.get("session");
-      if (uid == "test") {
+      if (!uid || uid == "anon") {
         
         navigate("/login");
       }
