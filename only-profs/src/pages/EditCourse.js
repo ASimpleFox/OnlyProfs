@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import './EditCourse.css';
+import {TextField} from '@material-ui/core';
 
 function EditCourse() {
     const [course, setCourse] = React.useState({
@@ -31,17 +32,8 @@ function EditCourse() {
         <div >
             <h1>Edit Course</h1>
             <form className="course-info" onSubmit={handleSubmit}>
-                <label className="input-Container" >
-                    Course Name:
-                    <input
-
-                        type="text"
-                        name="courseName"
-                        value={course.courseName}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label className="input-Container">
+                <TextField id="standard-basic" label="Course Name" variant="outlined" />
+                <label>
                     Course Code:
                     <input
                         type="text" 
@@ -51,7 +43,7 @@ function EditCourse() {
                     />
                 </label>
 
-                <label className="input-Container">
+                <label>
                     Course Description:
                     <input
 
