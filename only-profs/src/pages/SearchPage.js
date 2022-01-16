@@ -30,8 +30,8 @@ export default function UploadLecture() {
   };
 
   const redirect = (uid) => {
-    console.log("pushed")
-    navigate("/Profiles/",{props: {uid: uid}});
+    console.log(uid)
+    navigate("/Profiles",{uid: uid});
   }
 
   return (
@@ -54,7 +54,7 @@ export default function UploadLecture() {
         </Button> 
       </div>
       <h2 className="padding">Results</h2>
-      <div onClick={() => {redirect("ddlHL0FYUpSwJsLtBCk2PD2ctJe2")}} className="search-results">
+      <div onClick={() => {redirect(userProfile.uid)}} className="search-results">
           <h2 className="profile-content">{userProfile.username}</h2>
           <h3 className="profile-content">{userProfile.title}</h3>
           <p className="profile-content">{userProfile.description}</p>
