@@ -9,19 +9,24 @@ function Profile(props) {
   const [userProfile, setUserProfile] = React.useState("");
   const [videoList, setVideoList] = React.useState([]);
 
+  const videos = videoList.map((video, ind) => {
+      return <VideoCard key={ind} video={video} />;
+  });
+
+
   useEffect(async () => {
     console.log("useEffect", props.profile);
     if (props.profile) {
-        const assignments = await APIFirebase.getProfessorAssignments(props.profile.uid);
-        console.log("assignments", assignments);
+        // const assignments = await APIFirebase.getProfessorAssignments(props.profile.uid);
+        // console.log("assignments", assignments);
         const videos = await APIFirebase.getProfessorVideos(props.profile.uid);
+        setVideoList(videos);
       console.log("videos ", videos);
+      console.log("videoList", videoList);
       setUserProfile(props.profile);
     } else {
       const uid = Cookies.get("session");
-      console.log("uid", uid);
       const profile = await APIFirebase.getProfessorInfoByUID(uid);
-      console.log("profile", profile);
       setUserProfile(profile);
     }
 
@@ -36,7 +41,7 @@ function Profile(props) {
       </div>
       <div>
         <h1>Lectures</h1>
-        <VideoCard></VideoCard>
+        <p>{videos}</p>
       </div>
     </div>
   );
