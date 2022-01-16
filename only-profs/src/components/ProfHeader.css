@@ -3,17 +3,23 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px;
-    gap: 18px;
-    padding-right: 20px;
+    margin-top: -40px;
+    gap: 22px;
+    padding-right: 40px;
 }
 
 .link {   /*links in div links*/
     text-decoration: none;
     color: #0072BC;
     font-size: 22px;
+    transition: transform 0.2s;
 }
 
+.link:hover {
+    transform: scale(
+      1.1
+    );
+}
 .container {     /*header container*/
     
     display: flex;

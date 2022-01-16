@@ -40,7 +40,7 @@ export default function UploadLecture() {
         <TextField
             onChange={(e) => onHandleChange(e)}
             id="outlined-basic"
-            label="Lecture Title"
+            label="Professor Name"
             variant="outlined"
             size="small"
         />

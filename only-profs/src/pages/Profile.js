@@ -23,7 +23,6 @@ function Profile(props) {
   });
 
   useEffect(async () => {
-      
     console.log("useEffect", props.profile);
     if (props.profile) {
       // const assignments = await APIFirebase.getProfessorAssignments(props.profile.uid);
@@ -33,8 +32,7 @@ function Profile(props) {
       setUserProfile(props.profile);
     } else {
       const uid = Cookies.get("session");
-      if (uid == "test") {
-        
+      if (!uid || uid == "anon") {
         navigate("/login");
       }
       const profile = await APIFirebase.getProfessorInfoByUID(uid);

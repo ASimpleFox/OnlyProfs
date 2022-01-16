@@ -9,7 +9,7 @@ import { getSessionCookie, setSessionCookie } from "./session";
 //func.signIn();
 
 function App() {
-
+  setSessionCookie("anon");
   return (
     <div className="App">
         <ProfHeader/>
