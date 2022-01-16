@@ -9,7 +9,6 @@ import { getSessionCookie, setSessionCookie } from "./session";
 //func.signIn();
 
 function App() {
-  setSessionCookie("test");
 
   return (
     <div className="App">
