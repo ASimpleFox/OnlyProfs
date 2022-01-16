@@ -1,10 +1,11 @@
 import React from 'react'
 import VideoCard from '../components/VideoCard';
+import './Profile.css';
 
 function Profile() {
     return (
-        <div>
-            <div>
+        <div className="profile-container">
+            <div className="prof-info">
                 <h1>Name</h1>
                 <h2>Title</h2>
                 <p>Bio</p>

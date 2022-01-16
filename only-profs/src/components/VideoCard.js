@@ -6,10 +6,10 @@ function VideoCard() {
         <div className="video-card">
             <img className="thumbnail" src={thumbnail}></img>
             <div className="video-card-content">
-                <h3>Title</h3>
-                <p>Uploaded by</p>
-                <p>Description</p>
-                <p>Includes</p>
+                <h3 className="video-info">Title</h3>
+                <p className="video-info">Uploaded by</p>
+                <p className="video-info">Description</p>
+                <p className="video-info">Includes 2 assignments</p>
             </div>
         </div>
     )
