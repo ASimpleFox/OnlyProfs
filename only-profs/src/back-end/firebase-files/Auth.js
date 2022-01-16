@@ -36,14 +36,16 @@ const signUpInstructor = async (email, password) => {
 };
 
 const signIn = async (email, password) => {
+  console.log(email + " " + password);
+  let user = undefined;
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
-      return user;
+      user = userCredential.user;
     })
     .catch((error) => {
-      return serverError(error.code, error.message);
+      console.log(error);
     });
+  return user;
 };
 
 export { signIn, signUpProfessor, signUpInstructor };
