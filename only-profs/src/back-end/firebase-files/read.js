@@ -7,7 +7,9 @@ const getProfessorVideos = async (userUID) => {
   const querySnapshot = await getDocs(videoList);
   var data = [];
   querySnapshot.forEach((doc) => {
-    data.push(doc.data());
+    if (doc.data().videoName !== undefined) {
+        data.push(doc.data());
+    }
   });
   return data;
 };

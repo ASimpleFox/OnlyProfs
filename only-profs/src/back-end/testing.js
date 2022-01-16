@@ -10,7 +10,7 @@ export async function testGetProfessorInfo() {
 };
 
 export async function testGetProfessorVideos() {
-    const data = await functions.getProfessorVideos("ddlHL0FYUpSwJsLtBCk2PD2ctJe2");
+    const data = await functions.getProfessorVideos("Kl0CEYb8srflJYbuATiRRvMv7nn2");
     console.log(data);
 };
 
