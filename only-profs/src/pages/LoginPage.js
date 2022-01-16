@@ -11,6 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 import { setSessionCookie } from "../session";
+import { useNavigate } from "react-router-dom";
 // import { userContext } from './UserContext';
 
 export default function LoginPage() {
@@ -20,6 +21,7 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const onHandleChange = (e, field) => {
     switch (field) {
@@ -40,6 +42,7 @@ export default function LoginPage() {
     } else {
         console.log("Login Successful");
         setSessionCookie(response.uid);
+        navigate("/search");
     }
   };
 
