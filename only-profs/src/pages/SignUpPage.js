@@ -6,12 +6,10 @@ import {
   TextField,
   Button,
   Typography,
+  Link,
 } from "@material-ui/core";
 
-import { Link } from "react-router-dom";
-
-export default function LoginPage() {
-
+export default function SignUpPage() {
   const [formParams, setFormParams] = React.useState({
     email: "",
     password: "",
@@ -46,7 +44,7 @@ export default function LoginPage() {
     <Grid>
       <Paper elevation={10} style={paperStyle}>
         <Grid align="center">
-          <h2>Log In</h2>
+          <h2>Sign Up</h2>
         </Grid>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -68,11 +66,6 @@ export default function LoginPage() {
             Sign in
           </Button>
         </form>
-        <Typography>
-          {" "}
-          Don't have an account yet?
-          <Link to="/SignUp"> Sign Up</Link>
-        </Typography>
         
       </Paper>
     </Grid>
