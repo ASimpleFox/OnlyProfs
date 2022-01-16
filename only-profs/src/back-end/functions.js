@@ -51,6 +51,11 @@ const getProfessorInfo = async (username) => {
     return res;
 }
 
+const getProfessorInfoByUID = async (uid) => {
+    const res = Read.getProfessorInfoByUID(uid);
+    return res;
+}
+
 //get user information //video, video title, video description, associated aassignments
 export {
   signUp,
@@ -59,6 +64,7 @@ export {
   getProfessorAssignments,
   getInstructorAssignments,
   getProfessorInfo,
+  getProfessorInfoByUID,
   uploadVideo,
   uploadAssignment,
 };
