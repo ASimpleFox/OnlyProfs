@@ -11,8 +11,8 @@ const signUp = async (email, password) => {
     // Could also be for signing up a student
 };
 
-const signIn = (email, password) => {
-    Auth.signIn(email, password);
+const signIn = async (email, password) => {
+    await Auth.signIn(email, password);
 };
 
 export {signUp, signIn}

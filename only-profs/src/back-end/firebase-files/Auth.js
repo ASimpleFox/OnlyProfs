@@ -42,7 +42,7 @@ const signIn = async (email, password) => {
       return user;
     })
     .catch((error) => {
-      return serverError(error.code, error.message);
+      return undefined;
     });
 };
 
