@@ -1,5 +1,5 @@
 import { db } from "./firebase.js";
-import { doc, setDoc, addDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc, updateDoc } from "firebase/firestore";
 
 const createProfessorDocument = async (
   user,
@@ -9,7 +9,7 @@ const createProfessorDocument = async (
 ) => {
   console.log(user);
   await setDoc(
-    doc(db, `Professors/${user.uid}/UserInformation/Information`),
+    doc(db, `Professors/${user.uid}`),
     {
       email: user.email,
       username: userUsername,
@@ -32,7 +32,7 @@ const createProfessorDocument = async (
 
 const createInstructorDocument = async (user) => {
   await setDoc(
-    doc(db, `Instructor/${user.uid}/UserInformation/Information`),
+    doc(db, `Instructor/${user.uid}`),
     {
       email: user.email,
     },
@@ -46,15 +46,25 @@ const createInstructorDocument = async (user) => {
 };
 
 const addVideoUrl = async (url, uid, fileName, description) => {
-  await addDoc(`Professors/${uid}/Videos/Video`, {
-    fileName: { videoURL: url, videoDiscription: description },
-  });
+  console.log(uid);
+  let docData = {};
+  docData[fileName] = {
+    videoURL: url,
+    videoDescription: description,
+    videoName: fileName,
+  };
+  await updateDoc(doc(db, `Professors/${uid}/Videos/Video`), docData);
 };
 
 const addAssignmentUrl = async (url, uid, fileName, description) => {
-  await addDoc(`Professors/${uid}/Assignments/Assignment`, {
-    fileName: { assignmentURL: url, assignmentDiscription: description },
-  });
+  console.log(uid);
+  let docData = {};
+  docData[fileName] = {
+    assignmentURL: url,
+    assignmentDescription: description,
+    assignmentName: fileName,
+  };
+  await updateDoc(doc(db, `Professors/${uid}/Assignments/Assignment`), docData);
 };
 
 export {

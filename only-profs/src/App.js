@@ -8,7 +8,6 @@ import { UserContextProvider, UserContext } from "./UserContext";
 import ProfHeader from "./components/ProfHeader";
 import { getSessionCookie, setSessionCookie } from "./session";
 
-testing.getProfessorInfo();
 
 function App() {
   setSessionCookie("test");
