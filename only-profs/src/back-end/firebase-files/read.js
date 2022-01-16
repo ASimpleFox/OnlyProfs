@@ -32,6 +32,7 @@ const getInstructorAssignments = async (userUID) => {
   const professorVideosDoc = await getDoc(
     doc(db, `Instructor/${userUID}/Assignments`)
   );
+  return professorVideosDoc;
 };
 
 
