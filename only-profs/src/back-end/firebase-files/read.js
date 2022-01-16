@@ -54,12 +54,12 @@ const getProfessorInfo = async (username) => {
 
 const getProfessorInfoByUID = async (uid) => {
     const profList = collection(db, "Professors");
-    const data = undefined;
+    let data = undefined;
     try {
       const querySnapshot = await getDocs(profList);
       querySnapshot.forEach((doc) => {
-          if (doc.id == uid) {
-              data = doc.data;
+          if (doc.id === uid) {
+              data = doc.data();
           }
       });
     } catch (err) {
