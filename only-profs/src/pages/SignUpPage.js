@@ -8,6 +8,7 @@ import {
   Typography,
   Link,
 } from "@material-ui/core";
+import * as func from "../back-end/functions";
 
 export default function SignUpPage() {
   const [formParams, setFormParams] = React.useState({
@@ -16,7 +17,6 @@ export default function SignUpPage() {
   });
 
   const onHandleChange = (e, field) => {
-    console.log(e);
     switch (field) {
       case "email":
         setFormParams({ ...formParams, email: e.target.value });
@@ -27,9 +27,14 @@ export default function SignUpPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formParams);
+    const user = await func.signUp(formParams.email, formParams.password);
+    if (!user) {
+        console.log("Signup Failed!")
+    } else {
+        console.log("Signup Successful!")
+    }
   };
 
   const paperStyle = {
@@ -63,7 +68,7 @@ export default function SignUpPage() {
             required
           />
           <Button type="submit" variant="contained" style={btnstyle} fullWidth>
-            Sign in
+            Sign up
           </Button>
         </form>
         
