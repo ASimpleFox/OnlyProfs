@@ -6,6 +6,7 @@ import UploadLecture from '../pages/UploadLecture';
 import './ProfHeader.css';
 import logo from './logo.png';
 import {Avatar} from '@material-ui/core';
+import Profile from '../pages/Profile';
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,7 @@ function ProfHeader() {
                     <Link className="link" to="/search">Search</Link>
                     <Link className="link" to="/login">Login</Link>
                     <Link className="link" to="/Upload">Upload</Link>
+                    <Link className="link" to="/Profile">Profile</Link>
                     <Avatar>H</Avatar>
                 </div>
                 <div className="content">
@@ -33,6 +35,7 @@ function ProfHeader() {
                     <Route path="/search" element={<SearchPage/>}/>
                     <Route path="/Upload" element={<UploadLecture/>}/>
                     <Route path="/login" element={<LoginPage/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
                 </Routes>
                 </div>
             </Router>

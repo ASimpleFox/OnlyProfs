@@ -1,11 +1,18 @@
 import React from 'react'
+import VideoCard from '../components/VideoCard';
 
 function Profile() {
     return (
         <div>
-            <h1>Jake Paul</h1>
-            <Typography component="legend">Read only</Typography>
-            <Rating name="read-only" value={value} readOnly />
+            <div>
+                <h1>Name</h1>
+                <h2>Title</h2>
+                <p>Bio</p>
+            </div>
+            <div>
+                <h1>Lectures</h1>
+                <VideoCard></VideoCard>
+            </div>
         </div>
     )
 }
