@@ -1,10 +1,10 @@
 // All functions that read from cloud firestore
-import { db } from "./firebase-files/firebase.js";
-import { doc, collection, addDoc, getDocs } from "firebase/firestore";
+import { db } from "./firebase.js";
+import { doc, getDoc } from "firebase/firestore";
 
 const getProfessorVideos = async ({ userUID }) => {
   const professorVideosDoc = await getDoc(
-    doc(db, `Professors/${user.providerData.uid}/Videos`)
+    doc(db, `Professors/${userUID}/Videos`)
   );
 
   if (professorVideosDoc.exists()) {
@@ -16,7 +16,7 @@ const getProfessorVideos = async ({ userUID }) => {
 
 const getProfessorAssignments = async ({ userUID }) => {
   const professorVideosDoc = await getDoc(
-    doc(db, `Professors/${user.providerData.uid}/Assignments`)
+    doc(db, `Professors/${userUID}/Assignments`)
   );
 
   if (professorVideosDoc.exists()) {
@@ -28,7 +28,7 @@ const getProfessorAssignments = async ({ userUID }) => {
 
 const getInstructorAssignments = async ({ userUID }) => {
   const professorVideosDoc = await getDoc(
-    doc(db, `Instructor/${user.providerData.uid}/Assignments`)
+    doc(db, `Instructor/${userUID}/Assignments`)
   );
 
   if (professorVideosDoc.exists()) {

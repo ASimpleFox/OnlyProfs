@@ -1,4 +1,4 @@
-import { db } from "./firebase-files/firebase.js";
+import { db } from "./firebase.js";
 import { doc, setDoc } from "firebase/firestore";
 
 const createProfessorDocument = async ({ user }) => {

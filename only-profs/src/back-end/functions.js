@@ -6,13 +6,13 @@ import * as Update from "./firebase-files/update";
 
 // All functions that front-end will call (Keep it simple)
 
-const signUp = (email, password) => {
-    Auth.signUpProfessor(email, password);
+const signUp = async (email, password) => {
+    await Auth.signUpProfessor(email, password);
     // Could also be for signing up a student
 };
 
 const signIn = (email, password) => {
-    Auth.signInProfessor(email, password);
+    Auth.signIn(email, password);
 };
 
 export {signUp, signIn}

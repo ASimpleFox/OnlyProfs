@@ -1,9 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import * as func from "./back-end/functions";
+import * as testing from "./back-end/testing";
+
+// await testing.testSignup();
 
 // Front-end can use the above function imports
-func.signIn();
+//func.signIn();
 
 function App() {
   return (

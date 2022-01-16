@@ -1,14 +1,19 @@
-import { db, auth } from "./firebase-files/firebase.js";
+import { db, auth } from "./firebase.js";
 import { createProfessorDocument, createInstructorDocument } from "./create.js";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
 };
 
 const signUpProfessor = async ({ email, password }) => {
+  console.log("Starting SignUp Professor");
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      console.log("Signed Up Professor");
       // Signed in
       const user = userCredential.user;
 
