@@ -7,7 +7,6 @@ import "./App.css";
 import { UserContextProvider, UserContext } from "./UserContext";
 import ProfHeader from "./components/ProfHeader";
 import { getSessionCookie, setSessionCookie } from "./session";
-
 function App() {
   setSessionCookie("test");
 

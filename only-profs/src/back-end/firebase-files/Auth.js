@@ -9,7 +9,13 @@ const serverError = (errorCode, errorMessage) => {
   return { errorCode: errorCode, errorMessage: errorMessage };
 };
 
-const signUpProfessor = async (email, password, username, title, description) => {
+const signUpProfessor = async (
+  email,
+  password,
+  username,
+  title,
+  description
+) => {
   let user = undefined;
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
