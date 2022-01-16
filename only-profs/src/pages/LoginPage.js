@@ -27,13 +27,13 @@ export default function LoginPage() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = func.signIn(formParams.email, formParams.password);
+    const user = await func.signIn(formParams.email, formParams.password);
     if (!user) {
-        // Login failed
+        console.log("Login Failed! Check Credentials!")
     } else {
-        // Login succeeded
+        console.log("Login Successful")
     }
   };
 

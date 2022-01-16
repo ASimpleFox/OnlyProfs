@@ -12,7 +12,8 @@ const signUp = async (email, password) => {
 };
 
 const signIn = async (email, password) => {
-    await Auth.signIn(email, password);
+    const user = await Auth.signIn(email, password);
+    return user;
 };
 
 export {signUp, signIn}
