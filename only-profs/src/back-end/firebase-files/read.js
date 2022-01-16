@@ -5,10 +5,10 @@ import { doc, getDoc, getDocs, collection, query, where } from "firebase/firesto
 const getProfessorVideos = async (userUID) => {
   const videoList = await collection(db, `Professors/${userUID}/Videos`);
   const querySnapshot = await getDocs(videoList);
-  var data = []
+  var data = [];
   querySnapshot.forEach((doc) => {
     data.push(doc.data());
-  })
+  });
 
   if (data.length != 0) {
     return data;

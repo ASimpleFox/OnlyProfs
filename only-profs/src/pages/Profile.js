@@ -14,8 +14,8 @@ function Profile(props) {
     if (props.profile) {
         const assignments = await APIFirebase.getProfessorAssignments(props.profile.uid);
         console.log("assignments", assignments);
-    //     const videos = await APIFirebase.getProfessorVideos(props.profile.uid);
-    //   console.log("videos ", videos);
+        const videos = await APIFirebase.getProfessorVideos(props.profile.uid);
+      console.log("videos ", videos);
       setUserProfile(props.profile);
     } else {
       const uid = Cookies.get("session");
