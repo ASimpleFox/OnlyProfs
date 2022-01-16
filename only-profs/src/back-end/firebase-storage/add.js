@@ -1,5 +1,5 @@
 import { storage } from "./firebase-files/firebase";
-import {addVideoUrl } from "../firebase-files/create.js"
+import { addVideoUrl } from "../firebase-files/create.js";
 
 const uploadVideoToStorage = (uid, file, fileName, description) => {
   storage
@@ -12,7 +12,7 @@ const uploadVideoToStorage = (uid, file, fileName, description) => {
 
   getDownloadURL(ref(storage, `${uid}/Videos/${fileName}`))
     .then((url) => {
-        addVideoUrl(url, uid, fileName, description);
+      addVideoUrl(url, uid, fileName, description);
     })
     .catch((error) => {
       // Handle any errors
@@ -30,9 +30,11 @@ const uploadAssignmentToStorage = (uid, file, fileName, description) => {
 
   getDownloadURL(ref(storage, `${uid}/Assignments/${fileName}`))
     .then((url) => {
-        addVideoUrl(url, uid, fileName, description);
+      addVideoUrl(url, uid, fileName, description);
     })
     .catch((error) => {
       // Handle any errors
     });
 };
+
+export { uploadVideoToStorage, uploadAssignmentToStorage };
