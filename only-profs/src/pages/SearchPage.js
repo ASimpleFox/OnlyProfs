@@ -11,7 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function UploadLecture() {
   const [formParams, setFormParams] = React.useState("");
   const [userProfile, setUserProfile] = React.useState("");
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const onHandleChange = (e) => {
     console.log(e);
@@ -29,9 +29,9 @@ export default function UploadLecture() {
     setUserProfile(video_response);
   };
 
-  const redirect = () => {
+  const redirect = (uid) => {
     console.log("pushed")
-    history("/Profiles");
+    navigate("/Profiles/",{props: {uid: uid}});
   }
 
   return (
@@ -54,7 +54,7 @@ export default function UploadLecture() {
         </Button> 
       </div>
       <h2 className="padding">Results</h2>
-      <div onClick={() => {redirect()}} className="search-results">
+      <div onClick={() => {redirect("ddlHL0FYUpSwJsLtBCk2PD2ctJe2")}} className="search-results">
           <h2 className="profile-content">{userProfile.username}</h2>
           <h3 className="profile-content">{userProfile.title}</h3>
           <p className="profile-content">{userProfile.description}</p>
