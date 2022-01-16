@@ -14,7 +14,7 @@ export default function UploadLecture() {
     },
     onChange(info) {
       if (info.file.status !== 'uploading') {
-        console.log(info.file, info.fileList);
+        console.log("info file ", info.file, info.fileList);
       }
       if (info.file.status === 'done') {
         message.success(`${info.file.name} file uploaded successfully`);
@@ -68,6 +68,7 @@ export default function UploadLecture() {
           <AntButton icon={<UploadOutlined />}>Upload Video</AntButton>
           <AntButton icon={<UploadOutlined />}>Upload Assignments</AntButton>
         </Upload>
+        <input type="file" accept=".mp4, .mov" />
         <Button variant="contained" className="button" type="submit">Submit</Button>
       </form>
     </div>

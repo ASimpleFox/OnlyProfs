@@ -1,24 +1,39 @@
-.link {
-    text-decoration: none;
-    text-color: #0072BC;
+.links {  /*div links*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    gap: 18px;
+    padding-right: 20px;
 }
 
-.container {
+.link {   /*links in div links*/
+    text-decoration: none;
+    color: #0072BC;
+    font-size: 22px;
+}
+
+.container {     /*header container*/
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.header {
+.header {      /*header? pls clarify*/
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     gap: 10px;
- 
+    
 }
 
 .logo {
-    width: 100px;
+    width: 150px;
+    
 }
 
 .content {

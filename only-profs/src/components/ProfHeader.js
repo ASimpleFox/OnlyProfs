@@ -23,12 +23,14 @@ function ProfHeader() {
             <Router >
                 <div className="header">
                     <img className="logo"src={logo} alt="Logo" />
-                    <Link className="link" to="/">Home</Link>
-                    <Link className="link" to="/search">Search</Link>
-                    <Link className="link" to="/login">Login</Link>
-                    <Link className="link" to="/Upload">Upload</Link>
-                    <Link className="link" to="/Profile">Profile</Link>
+                    <div className="links">
+                        <Link className="link" to="/">Home</Link>
+                        <Link className="link" to="/search">Search</Link>
+                        <Link className="link" to="/login">Login</Link>
+                        <Link className="link" to="/Upload">Upload</Link>
+                        <Link className="link" to="/Profile">Profile</Link>
                     <Avatar>H</Avatar>
+                    </div>
                 </div>
                 <div className="content">
                 <Routes>
