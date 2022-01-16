@@ -58,6 +58,7 @@ export {
   getProfessorVideos,
   getProfessorAssignments,
   getInstructorAssignments,
+  getProfessorInfo,
   uploadVideo,
   uploadAssignment,
 };
