@@ -6,10 +6,12 @@ import * as APIFirebase from "../back-end/functions";
 import "./UploadLecture.css";
 import Cookies from "js-cookie";
 import "./SearchPage.css";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function UploadLecture() {
   const [formParams, setFormParams] = React.useState("");
   const [userProfile, setUserProfile] = React.useState("");
+  const history = useNavigate();
 
   const onHandleChange = (e) => {
     console.log(e);
@@ -26,6 +28,11 @@ export default function UploadLecture() {
      }
     setUserProfile(video_response);
   };
+
+  const redirect = () => {
+    console.log("pushed")
+    history("/Profiles");
+  }
 
   return (
     <div className="search-container">
@@ -47,14 +54,10 @@ export default function UploadLecture() {
         </Button> 
       </div>
       <h2 className="padding">Results</h2>
-      <div className="search-results">
+      <div onClick={() => {redirect()}} className="search-results">
           <h2 className="profile-content">{userProfile.username}</h2>
           <h3 className="profile-content">{userProfile.title}</h3>
           <p className="profile-content">{userProfile.description}</p>
-          <Button
-            variant="contained">
-
-            </Button>
       </div>
     </div>
   );

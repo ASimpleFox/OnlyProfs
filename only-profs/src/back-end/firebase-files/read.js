@@ -1,6 +1,6 @@
 // All functions that read from cloud firestore
 import { db } from "./firebase.js";
-import { doc, getDoc, collection, query, where } from "firebase/firestore";
+import { doc, getDoc, collection, query, where, getDocs } from "firebase/firestore";
 
 const getProfessorVideos = async (userUID) => {
   const professorVideosDoc = await getDoc(
