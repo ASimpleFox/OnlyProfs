@@ -14,24 +14,23 @@ export default function UploadLecture() {
   const navigate = useNavigate();
 
   const onHandleChange = (e) => {
-    console.log(e);
     setFormParams(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     const video_response = await APIFirebase.getProfessorInfo(formParams);
-    console.log("handle");
-    console.log(video_response);
+    console.log("handle", video_response);
     if (!video_response) {
       console.log("Get Info Failed");
     } else {
      }
     setUserProfile(video_response);
+    console.log(userProfile);
   };
 
   const redirect = (uid) => {
-    console.log(uid)
-    navigate("/Profiles",{uid: uid});
+    console.log("redirecting uid ", uid, userProfile.username)
+    navigate("/Profiles", {state: {profile: userProfile}});
   }
 
   return (

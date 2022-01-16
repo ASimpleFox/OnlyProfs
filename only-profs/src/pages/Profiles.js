@@ -6,10 +6,10 @@ import {useLocation} from 'react-router-dom';
 function Profiles() {
 
     const location = useLocation();
-    console.log(location);
+    console.log("location ", location.state);
     return (
         <div>
-            <Profile props={location.uid}/>
+            <Profile profile={location.state.profile}/>
         </div>
     )
 }
