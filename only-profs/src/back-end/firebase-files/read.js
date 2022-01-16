@@ -2,7 +2,7 @@
 import { db } from "./firebase.js";
 import { doc, getDoc } from "firebase/firestore";
 
-const getProfessorVideos = async ({ userUID }) => {
+const getProfessorVideos = async (userUID) => {
   const professorVideosDoc = await getDoc(
     doc(db, `Professors/${userUID}/Videos`)
   );
@@ -14,7 +14,7 @@ const getProfessorVideos = async ({ userUID }) => {
   }
 };
 
-const getProfessorAssignments = async ({ userUID }) => {
+const getProfessorAssignments = async (userUID) => {
   const professorVideosDoc = await getDoc(
     doc(db, `Professors/${userUID}/Assignments`)
   );
@@ -26,7 +26,7 @@ const getProfessorAssignments = async ({ userUID }) => {
   }
 };
 
-const getInstructorAssignments = async ({ userUID }) => {
+const getInstructorAssignments = async (userUID) => {
   const professorVideosDoc = await getDoc(
     doc(db, `Instructor/${userUID}/Assignments`)
   );

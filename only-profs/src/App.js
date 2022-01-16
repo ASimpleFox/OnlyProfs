@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import * as testing from "./back-end/testing";
+// import * as testing from "./back-end/testing";
+// import * as func from "./back-end/functions";
 
-// await testing.testSignup();
 
 // Front-end can use the above function imports
 //func.signIn();
